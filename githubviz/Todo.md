@@ -1,0 +1,4 @@
+- [ ] Do mock viz with lang data and repo data
+- [ ] Error handling for viz elemens
+- [ ] Do the styling part for the mock viz
+- [ ] Implement the API
