@@ -6,7 +6,7 @@ import Router from "next/router";
 import { useState } from "react";
 
 
-export default function Home() {
+const Home = () => {
   const [username, setUsername] = useState("");
   const handleChange = (e) => setUsername(e.target.value);
   return (
@@ -44,3 +44,5 @@ export default function Home() {
     </main>
   );
 }
+
+export default Home;
