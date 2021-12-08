@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { mockUserData, mockRepoData, mockLangData } from "../mock";
 import PropTypes from "prop-types";
-import { UserInfo } from "../UI";
+import { UserInfo, Charts } from "../UI";
 
 const User = (props) => {
   const username = props.query.id;
   // const [userData, setUserData] = useState(mockUserData);
 
-  const [userData, setUserData] = useState(null);
-  const [langData, setLangData] = useState(null);
+  const [userDataState, setUserDataState] = useState(null);
+  const [langDataState, setLangDataState] = useState(null);
   const [repoData, setRepoData] = useState(null);
 
   useEffect(() => {
@@ -16,8 +16,8 @@ const User = (props) => {
     // return () => {
     //   cleanup
     // };
-    setUserData(mockUserData);
-    setLangData(mockLangData);
+    setUserDataState(mockUserData);
+    setLangDataState(mockLangData);
     setRepoData(mockRepoData);
   }, []);
 
@@ -26,6 +26,7 @@ const User = (props) => {
     <div>
       <h1>username - {username}</h1>
       <UserInfo userData={mockUserData} />
+      <Charts langData={mockLangData} repoData={mockRepoData}  />
     </div>
   );
 };

@@ -8,7 +8,7 @@ const Userinfo = ({ userData }) => {
     <div>
       <UserInfoStyles>
         <div className="avatar">
-          {<img src={(!userData.avatar) && userData.avatar_url} alt="avatar" />}
+          {<img src={userData.avatar && userData.avatar_url} alt="avatar" />}
         </div>
 
         <h1>{userData.name}</h1>

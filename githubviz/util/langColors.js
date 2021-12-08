@@ -1,4 +1,4 @@
-export default langColors = {
+const langColors = {
     "Mercury": "#ff2b2b", 
     "TypeScript": "#2b7489", 
     "PureBasic": "#5a6986", 
@@ -198,3 +198,5 @@ export default langColors = {
     "Dogescript": "#cca760", 
     "nesC": "#94B0C7"
 };
+
+export default langColors;
