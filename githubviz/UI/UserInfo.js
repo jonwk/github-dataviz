@@ -3,34 +3,69 @@ import React from "react";
 import PropTypes from "prop-types";
 import UserInfoStyles from "./bsui/UserInfoStyles";
 
-const Userinfo = ({ userData }) => {
-  return (
-    <div>
-      <UserInfoStyles>
-        <div className="avatar">
-          {<img src={userData.avatar && userData.avatar_url} alt="avatar" />}
-        </div>
+const UserInfo = ({ userData }) => {
+  if (userData !== null) {
+    // console.log('userData = ',userData);
+    return (
+      <div>
+        <UserInfoStyles>
+          {userData.avatar_url && (
+            <div className="avatar">
+              <img src={userData.avatar_url} alt="avatar" />
+            </div>
+          )}
 
-        <h1>{userData.name}</h1>
+          {userData.name && <h1>{userData.name}</h1>}
 
-        <h2>
-          <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
-            @{userData.login}
-          </a>
-        </h2>
+          <h2>
+            <a
+              href={userData.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @{userData.login}
+            </a>
+          </h2>
 
-        <div className="info">
-          <span className="info_item">{userData.company}</span>
-          <span className="info_item">{userData.location}</span>
-          <span className="info_item">{userData.bio}</span>
-        </div>
-      </UserInfoStyles>
-    </div>
-  );
+          <div className="info">
+            <span className="info_item">{userData.company}</span>
+            <span className="info_item">{userData.location}</span>
+            <span className="info_item">{userData.bio}</span>
+          </div>
+        </UserInfoStyles>
+      </div>
+    );
+  }
+  return <div>user info</div>;
 };
+// const UserInfo = ({ userData }) => (
+// <div>
+//   <UserInfoStyles>
+//     {userData.avatar_url && (
+//       <div className="avatar">
+//         <img src={userData.avatar_url} alt="avatar" />
+//       </div>
+//     )}
 
-Userinfo.propTypes = {
+//     {userData.name && <h1>{userData.name}</h1>}
+
+//     <h2>
+//       <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
+//         @{userData.login}
+//       </a>
+//     </h2>
+
+//     <div className="info">
+//       <span className="info_item">{userData.company}</span>
+//       <span className="info_item">{userData.location}</span>
+//       <span className="info_item">{userData.bio}</span>
+//     </div>
+//   </UserInfoStyles>
+// </div>
+// );
+
+UserInfo.propTypes = {
   userData: PropTypes.object.isRequired,
 };
 
-export default Userinfo;
+export default UserInfo;

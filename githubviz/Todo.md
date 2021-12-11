@@ -3,3 +3,4 @@
 - [ ] Error handling for viz elemens
 - [ ] Do the styling part for the mock viz
 - [ ] Implement the API
+  - [X] Getting User Data from API
