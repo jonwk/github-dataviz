@@ -1,7 +1,5 @@
 - [x] Do mock viz with lang data 
 - [x] Do mock viz with repo data
-- [ ] Error handling for viz elemens
-- [ ] Do the styling part for the mock viz
 - [ ] Implement the API
   - [X] Getting User Data from API
   - [X] Data Visualization from api
@@ -9,3 +7,5 @@
     - [X] Stars
     - [X] Repos
   - [ ] Use State Bug for lang data in `Charts.js` and `user.js` 
+- [ ] Error handling for viz elemens
+- [ ] Do the styling part for the mock viz
