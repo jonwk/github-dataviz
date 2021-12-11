@@ -9,9 +9,10 @@ const User = (props) => {
   console.log(`username- ${username}`);
   // const [userData, setUserData] = useState(mockUserData);
 
-  const [userDataSt, setUserDataSt] = useState(null);
+  const [userData, setUserData] = useState(null);
   const [langData, setLangData] = useState(null);
   const [repoData, setRepoData] = useState(null);
+
 
   const getUserData = () => {
     fetch(`https://api.github.com/users/${username}`)
@@ -25,8 +26,8 @@ const User = (props) => {
         return res.json();
       })
       .then((json) => {
-        console.log(`User data - ${json}`);
-        setUserDataSt(json);
+        console.log(`User data - `, json);
+        setUserData(json);
       })
       .catch((error) => {
         console.log(`Error: ${error}`);
@@ -45,21 +46,29 @@ const User = (props) => {
         return res.json();
       })
       .then((json) => {
-        console.log(`Repo data - ${json}`);
+        console.log(`Repo data - `, json);
         setRepoData(json);
       })
       .catch((error) => {
         console.log(`Error: ${error}`);
       });
   };
+
   const getLangData = () => {
+  
     const user = new GhPolyglot(`${username}`);
     user.userStats((err, stats) => {
       if (err) {
         console.log(`Error: ${err}`);
       }
+      console.log(`lang data - `, stats);
+      const ld = stats;
+      console.log(`ld - `, ld);
       setLangData(stats);
+      setLangData(ld);
+      console.log(`lang data - `, langData);
     });
+    // console.log(`data - `, data);
   };
 
   useEffect(() => {
@@ -69,6 +78,7 @@ const User = (props) => {
         // setRateLimit(json.resources.core);
         if (json.resources.core.remaining < 1) {
           console.log(`403 Error`);
+          console.log(`Rate Limit Reached`);
           // setError({ active: true, type: 403 });
         }
       });
@@ -77,15 +87,15 @@ const User = (props) => {
     // setRepoData(mockRepoData);
 
     getUserData();
-    getRepoData();
     getLangData();
+    getRepoData();
   }, []);
 
   console.log(`Username - ${username}`);
   return (
     <div>
       <h1>username - {username}</h1>
-      <UserInfo userData={userDataSt} />
+      <UserInfo userData={userData} />
       <Charts langData={langData} repoData={repoData} />
     </div>
   );

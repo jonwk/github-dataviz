@@ -12,7 +12,7 @@ const Charts = ({ langData, repoData }) => {
 
     setLangChartData(data);
 
-    if (data.length != null && data.length > 0) {
+    if (data.length > 0) {
       const backgroundColor = langData.map(
         ({ color }) =>
           `#${color.length > 4 ? color.slice(1) : color.slice(1).repeat(2)}B3`
@@ -49,7 +49,7 @@ const Charts = ({ langData, repoData }) => {
 
     setstarChartData(data);
 
-    if (data.length != null && data.length > 0) {
+    if (data.length > 0) {
       //   const backgroundColor = langData.map(
       //     ({ color }) =>
       //       `#${color.length > 4 ? color.slice(1) : color.slice(1).repeat(2)}B3`
@@ -75,14 +75,6 @@ const Charts = ({ langData, repoData }) => {
   const [starChart2Data, setstarChart2Data] = useState(null);
   const initStartChart2 = () => {
     const ctx = document.getElementById("starChart2");
-    // const MAX = 5;
-
-    // const sortProperty = "stargazers_count";
-    // const mostStarredRepos = repoData
-    //   .filter((repo) => !repo.fork)
-    //   .sort((a, b) => b[sortProperty] - a[sortProperty])
-    //   .slice(0, MAX);
-
     const filteredRepos = repoData.filter(
       (repo) => !repo.fork && repo.stargazers_count > 0
     );
@@ -102,7 +94,7 @@ const Charts = ({ langData, repoData }) => {
     });
     setstarChart2Data(data);
 
-    if (data.length != null && data.length > 0) {
+    if (data.length > 0) {
       const chartType = "doughnut";
       const borderColor = labels.map((label) => langColors[label]);
       const backgroundColor = borderColor.map((color) => `${color}B3`);
@@ -123,11 +115,9 @@ const Charts = ({ langData, repoData }) => {
   };
 
   useEffect(() => {
-    //   effect
-    //   return () => {
-    //       cleanup
-    //   };
-    if (langData.length > 0) {
+    console.log('lang data - ',langData);
+    
+    if (langData !== null && repoData !== null) {
       initLangChart();
       initStartChart();
       initStartChart2();
@@ -135,26 +125,30 @@ const Charts = ({ langData, repoData }) => {
   }, []);
   const chartSize = 300;
 
-  return (
-    <div>
-      <ChartsStyles>
-        <div className="chart">
-          <div className="lang-chart">
-            <h1>Top Languages</h1>
-            <canvas id="langChart" width={chartSize} height={chartSize} />
+  if (langData !== null && repoData !== null) {
+    return (
+      <div>
+        <ChartsStyles>
+          <div className="chart">
+            <div className="lang-chart">
+              <h1>Top Languages</h1>
+              <canvas id="langChart" width={chartSize} height={chartSize} />
+            </div>
+            <div className="star-chart">
+              <h1>Most Starred Repos</h1>
+              <canvas id="starChart" width={chartSize} height={chartSize} />
+            </div>
+            <div className="star-chart2">
+              <h1>Most Starred Per Repo</h1>
+              <canvas id="starChart2" width={chartSize} height={chartSize} />
+            </div>
           </div>
-          <div className="star-chart">
-            <h1>Most Starred Repos</h1>
-            <canvas id="starChart" width={chartSize} height={chartSize} />
-          </div>
-          <div className="star-chart2">
-            <h1>Most Starred Per Repo</h1>
-            <canvas id="starChart2" width={chartSize} height={chartSize} />
-          </div>
-        </div>
-      </ChartsStyles>
-    </div>
-  );
+        </ChartsStyles>
+      </div>
+    );
+  } else {
+    return <div>charts</div>;
+  }
 };
 
 Charts.propTypes = {
@@ -163,3 +157,4 @@ Charts.propTypes = {
 };
 
 export default Charts;
+

@@ -4,3 +4,8 @@
 - [ ] Do the styling part for the mock viz
 - [ ] Implement the API
   - [X] Getting User Data from API
+  - [X] Data Visualization from api
+    - [X] Langs
+    - [X] Stars
+    - [X] Repos
+  - [ ] Use State Bug for lang data in `Charts.js` and `user.js` 
