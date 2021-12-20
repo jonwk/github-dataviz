@@ -1,7 +1,7 @@
 {
     "version": 2,
     "name": "sample-app",
-    "alias" : "sample-app",
+    "alias" : "github-dataviz",
     "builds": [
         {
             "src": "package.json",
