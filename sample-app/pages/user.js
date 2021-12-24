@@ -1,28 +1,15 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { mockUserData, mockRepoData } from "../mock";
+
 // import { UserInfo, Charts, RateLimit } from "../components";
-// import GhPolyglot from "gh-polyglot";
 
 const User = (props) => {
   const username = props.query.id;
-  //   const [userData, setUserData] = useState(null);
-  //   const [langData, setLangData] = useState(null);
-  //   const [repoData, setRepoData] = useState(null);
+  const [userData, setUserData] = useState(null);
+  const [repoData, setRepoData] = useState(null);
   //   const [error, setError] = useState({ active: false, type: 200 });
   //   const [rateLimit, setRateLimit] = useState(null);
-
-  //   // async function getUserData() {
-  //   //   let response = await fetch(`https://api.github.com/users/${username}`);
-  //   //   if (response.status === 404) {
-  //   //     return setError({ active: true, type: 404 });
-  //   //   }
-  //   //   if (response.status === 403) {
-  //   //     return setError({ active: true, type: 403 });
-  //   //   }
-  //   //   const json = response.json();
-  //   //   setUserData(json);
-  //   //   return;
-  //   // }
 
   //   const getUserData = () => {
   //     fetch(`https://api.github.com/users/${username}`)
@@ -71,39 +58,39 @@ const User = (props) => {
   //       });
   //   };
 
-  //   useEffect(() => {
-  //     fetch(`https://api.github.com/rate_limit`)
-  //       .then(response => response.json())
-  //       .then(json => {
-  //         setRateLimit(json.resources.core);
-  //         if (json.resources.core.remaining < 1) {
-  //           setError({ active: true, type: 403 });
-  //         }
-  //       });
+  useEffect(() => {
+    // fetch(`https://api.github.com/rate_limit`)
+    //   .then(response => response.json())
+    //   .then(json => {
+    //     setRateLimit(json.resources.core);
+    //     if (json.resources.core.remaining < 1) {
+    //       setError({ active: true, type: 403 });
+    //     }
+    //   });
 
-  //     // getUserData();
-  //     getUserData();
-  //     getLangData();
-  //     getRepoData();
-  //   }, []);
+    // // getUserData();
+    // getUserData();
+    // getLangData();
+    // getRepoData();
 
-  //   return (
-  //     <main>
-  //       {rateLimit && <RateLimit rateLimit={rateLimit} />}
+    setUserData(mockUserData);
+    setRepoData(mockRepoData);
+  }, []);
 
-  //       {
-  //         <>
-  //           {userData && <UserInfo userData={userData} />}
+  return (
+    <main>
+      {/* {rateLimit && <RateLimit rateLimit={rateLimit} />} */}
 
-  //           {langData && repoData && (
-  //             <Charts langData={langData} repoData={repoData} />
-  //           )}
-  //         </>
-  //       }
-  //     </main>
-  //   );
+      {
+        <>
+          <h1>UserName - {username}</h1>
+          {/* {userData && <UserInfo userData={userData} />}
 
-  return <h1>UserName - {username}</h1>;
+          {repoData && <Charts repoData={repoData} />} */}
+        </>
+      }
+    </main>
+  );
 };
 
 User.propTypes = {
