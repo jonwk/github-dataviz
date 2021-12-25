@@ -37,8 +37,8 @@ const UserInfo = ({ userData }) => (
             <span className="info__item">
               {/* <Octicon icon={Briefcase} size="small" /> */}
               <Briefcase
-                className="info__icon"
-                color={colors.lightestGreen}
+                className="icon"
+                color={colors.grey}
                 size={27.5}
                 strokeWidth="1.6px"
               />
@@ -50,8 +50,8 @@ const UserInfo = ({ userData }) => (
             <span className="info__item">
               {/* <Octicon icon={Location} size="small" /> */}
               <MapPin
-                className="info__icon"
-                color={colors.lightestGreen}
+                className="icon"
+                color={colors.grey}
                 size={27.5}
                 strokeWidth="1.6px"
               />
@@ -63,8 +63,8 @@ const UserInfo = ({ userData }) => (
             <span className="info__item">
               {/* <Octicon icon={Calendar} size="small" /> */}
               <Calendar
-                className="info__icon"
-                color={colors.lightestGreen}
+                className="icon"
+                color={colors.grey}
                 size={27.5}
                 strokeWidth="1.6px"
               />

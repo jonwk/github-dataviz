@@ -15,9 +15,10 @@ const Section = styled.section`
   ${(props) =>
     props.dark &&
     css`
-      background-color: ${colors.black};
       color: ${colors.lightestBlue};
       padding-bottom: 10rem;
+      background-color: ${colors.black};
+      box-shadow: inset -27px 27px 100px #0a0c0e, inset 27px -27px 100px #2a3036;
       ${media.bp900`
         padding-top: 2rem;
         padding-bottom: 10rem;

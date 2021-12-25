@@ -15,14 +15,18 @@ const UserInfoStyles = styled.div`
   .avatar {
     ${helper.flexCenter};
     margin-bottom: 1.5rem;
-    // -webkit-border-image:
-    border: 0.25rem solid ${colors.lightestGreen};
+    // border: 0.2rem solid ${colors.lightestGreen};
+    border: 0.2rem solid ${colors.offWhite};
     border-radius: 100%;
     width: 150px;
     height: 150px;
     img {
       border-radius: 100%;
     }
+    border-radius: 50%;
+    //     background: #24292e;
+    background: linear-gradient(145deg, #1e2226, #2a3036);
+    box-shadow: 22px 22px 28px #1e2226, -22px -22px 28px #2a3036;
   }
 
   h1 {
@@ -58,23 +62,30 @@ const UserInfoStyles = styled.div`
     ${media.bp600`
       display: block;
     `};
+    // border-radius: 0.25rem;
+    padding: 0.6rem;
+    border-radius: 10px;
+    // background: #24292e;
+    // box-shadow: inset -24px -24px 39px #1e2226, inset 24px 24px 39px #2a3036;
+    background: #24292e;
+    // box-shadow: -7px 7px 14px #15181b, 7px -7px 14px #333a41;
+    box-shadow: inset -24px -24px 39px #1e2226, inset 24px 24px 39px #2a3036;
 
     &__item {
       ${helper.flexCenter};
-      color: ${colors.lightestGreen};
+      // color: ${colors.lightestGreen};
+      color: ${colors.offWhite};
       margin: 0 1rem 0.5rem;
       white-space: nowrap;
       svg {
         margin-right: 5px;
       }
     }
-
-    &__icon {
-      // color: ${colors.lightestGreen};
-      color: transparent;
-    }
   }
 
+  .icon {
+    color: transparent;
+  }
   .stats {
     display: grid;
     grid-template-columns: repeat(3, minmax(100px, 150px));
@@ -87,7 +98,10 @@ const UserInfoStyles = styled.div`
       flex-direction: column;
       background-color: ${colors.darkGrey};
       padding: 1rem;
-      border-radius: 0.25rem;
+      // border-radius: 0.25rem;
+      border-radius: 10px;
+      background: #24292e;
+      box-shadow: inset -24px -24px 39px #1e2226, inset 24px 24px 39px #2a3036;
       text-align: center;
       ${media.bp400`
         padding: 1rem 0.5rem;
