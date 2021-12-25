@@ -15,17 +15,12 @@ const Charts = () => {
           </header>
 
           <div className="chart-container">
-            <ResponsiveContainer width={700} height="80%">
-              <PieChartComp />
-            </ResponsiveContainer>
-
-            {/* {langChartError && <p>Nothing to see here!</p>} */}
-            {/* <canvas id="langChart" width={chartSize} height={chartSize} /> */}
+            <PieChartComp />
           </div>
         </div>
         <div className="chart">
           <header>
-            <h2>Top Languages</h2>
+            <h2>Top Starred Repos</h2>
           </header>
 
           <div className="chart-container">
@@ -37,7 +32,7 @@ const Charts = () => {
         </div>
         <div className="chart">
           <header>
-            <h2>Top Languages</h2>
+            <h2>Starred Languages</h2>
           </header>
 
           <div className="chart-container">

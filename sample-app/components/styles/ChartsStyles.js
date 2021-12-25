@@ -23,6 +23,7 @@ const ChartsStyles = styled.div`
     // background-color: ${colors.white};
     // background-color: transparent;
     max-width: 500px;
+    // overflow: auto;
     padding: 2rem;
     border-radius: 0.25rem;
     box-shadow: 0 5px 30px -15px rgba(0, 0, 0, 0.2);
@@ -43,8 +44,8 @@ const ChartsStyles = styled.div`
     }
   }
   .chart-container {
-    overflow: auto;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    overflow:visible;
+    box-shadow : 0px -0px 10000px transparent
     display: flex;
     justify-content: space-around;
   }
