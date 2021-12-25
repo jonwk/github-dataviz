@@ -21,7 +21,7 @@ const Section = styled.section`
       box-shadow: inset -27px 27px 100px #0a0c0e, inset 27px -27px 100px #2a3036;
       ${media.bp900`
         padding-top: 2rem;
-        padding-bottom: 10rem;
+        // padding-bottom: 10rem;
       `};
     `};
 

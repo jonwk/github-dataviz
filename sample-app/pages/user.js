@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import { mockUserData, mockRepoData } from "../mock";
 
 // import { UserInfo, Charts, RateLimit } from "../components";
-import { UserInfo } from "../components";
+import { UserInfo, Charts } from "../components";
+
+import { BarChart } from "recharts";
 
 const User = (props) => {
   const username = props.query.id;
@@ -85,8 +87,7 @@ const User = (props) => {
       {
         <>
           {userData && <UserInfo userData={userData} />}
-
-          {/* {repoData && <Charts repoData={repoData} />} */}
+          {repoData && <Charts repoData={repoData} />}
         </>
       }
     </main>

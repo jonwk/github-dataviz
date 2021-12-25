@@ -5,8 +5,9 @@ import PropTypes from "prop-types";
 import UserInfoStyles from "./styles/UserInfoStyles";
 import { Section } from "../styles";
 import { Briefcase, Calendar, MapPin } from "react-feather";
-import { theme } from "../styles";
-const { colors } = theme;
+// import { theme } from "../styles";
+// const { colors } = theme;
+import { colors } from "../styles";
 
 const UserInfo = ({ userData }) => (
   <Section dark>

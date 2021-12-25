@@ -1,3 +1,4 @@
 import UserInfo from "./UserInfo";
+import Charts from "./Charts";
 
-export { UserInfo };
+export { UserInfo, Charts };
