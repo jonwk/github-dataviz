@@ -3,93 +3,262 @@ import Router from "next/router";
 import styled from "styled-components";
 import { helper, colors, fonts } from "../styles";
 
-
 const CenteredContainer = styled.div`
   ${helper.flexCenter};
-  // background-color: ${colors.black};
-  // background-image: linear-gradient(
-  //   ${colors.lightblue} 15%,
-  //   ${colors.orange} 10%,
-  //   ${colors.lightgreen} 90%
-  //  );
 
-  // background: #4b6cb7;  /* fallback for old browsers */
-  // background: -webkit-linear-gradient(to top, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
-  // background: linear-gradient(to top, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  background: #67b26f; /* fallback for old browsers */
+  background: #4b6cb7; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to top,
-    #4ca2cd,
-    #67b26f
+    #182848,
+    #4b6cb7
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to top,
-    #4ca2cd,
-    #67b26f
+    #182848,
+    #4b6cb7
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  color: ${colors.offWhite};
-  height: 100vh;
+  // background: #67b26f; /* fallback for old browsers */
+  // background: -webkit-linear-gradient(
+  //   to top,
+  //   #4ca2cd,
+  //   #67b26f
+  // ); /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(
+  //   to top,
+  //   #4ca2cd,
+  //   #67b26f
+  // ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  form {
-    background-color: transparent;
-    border-radius: 5px;
-    padding: 2rem;
-    margin-bottom: 20vh;
-    max-width: 600px;
-    text-align: center;
-    svg {
-      color: ${colors.blue};
-    }
-    // label {
-    //   display: block;
-    //   font-size: 2.5rem;
-    //   font-weight: 500;
-    //   margin: 2rem;
-    // }
-    input {
-      background-color: #26303c;
-      outline: 0;
-      border: 0;
-      display: inline-block;
-      border-radius: 0.25rem;
-      width: 76%;
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 1rem;
-      color: ${colors.lightgreen};
-      font-family: ${fonts.mono};
-      font-size: 2rem;
-      font-weight: 400;
-      text-align: center;
-    }
+  // color: ${colors.offWhite};
+  // height: 100vh;
 
-    button[type="submit"] {
-      background-color: #26303c;
-      width: 10%;
-      min-width: 50px;
-      max-width: 500px;
-      color: ${colors.lightgreen};
-      // color: #5dad94;
-      font-size: 2rem;
-      font-weight: 400;
-      height: 4.5rem;
-      max-height: 250px;
-      margin: 0 0.775px;
-      filter: none;
-      border: 0 none;
-      cursor: pointer;
-      -webkit-border-radius: 5px;
-      border-radius: 5px;
-    }
+  // form {
+  //   height: 96px;
+  //   // background-color: transparent;
+  //   // border-radius: 5px;
+  //   // padding: 2rem;
+  //   // margin-bottom: 20vh;
+  //   // max-width: 600px;
+  //   // text-align: center;
+  //   // svg {
+  //   //   color: ${colors.blue};
+  //   // }
+
+  //   label {
+  //     display: block;
+  //     font-size: 2.5rem;
+  //     font-weight: 500;
+  //     margin: 2rem;
+  //   }
+  //
+  //
+  // input {
+  //   background-color: #26303c;
+  //   outline: 0;
+  //   border: 0;
+  //   display: inline-block;
+  //   border-radius: 0.25rem;
+  //   width: 76%;
+  //   max-width: 500px;
+  //   margin: 0 auto;
+  //   padding: 1rem;
+  //   color: ${colors.lightgreen};
+  //   font-family: ${fonts.mono};
+  //   font-size: 2rem;
+  //   font-weight: 400;
+  //   text-align: center;
+  // }
+
+  //   button[type="submit"] {
+  //     background-color: #26303c;
+  //     width: 10%;
+  //     min-width: 50px;
+  //     max-width: 500px;
+  //     color: ${colors.lightgreen};
+  //     // color: #5dad94;
+  //     font-size: 2rem;
+  //     font-weight: 400;
+  //     height: 4.5rem;
+  //     max-height: 250px;
+  //     margin: 0 0.775px;
+  //     filter: none;
+  //     border: 0 none;
+  //     cursor: pointer;
+  //     -webkit-border-radius: 5px;
+  //     border-radius: 5px;
+  //   }
+  // }
+
+  // .search-container button:hover {
+  //   opacity: 0.875;
+  //   color: #f0f;
+  //   // color: #51a5be;
+  //   // color:${colors.lightblue};
+  // }
+
+  * {
+    outline: none;
   }
 
-  .search-container button:hover {
-    opacity: 0.875;
-    color: #f0f;
-    // color: #51a5be;
-    // color:${colors.lightblue};
+  html,
+  body {
+    height: 100%;
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: #ffd8d8;
+    background: #4b6cb7; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to top,
+      #182848,
+      #4b6cb7
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to top,
+      #182848,
+      #4b6cb7
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+  .tb {
+    display: table;
+    width: 100%;
+  }
+
+  .td {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  input,
+  button {
+    color: #fff;
+    font-family: ${fonts.mono};
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+  }
+
+  #cover {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    width: 550px;
+    padding: 35px;
+    margin: -83px auto 0 auto;
+    background-color: #ff7575;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
+    transform: scale(0.6);
+  }
+
+  form {
+    height: 96px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    height: 96px;
+    font-size: 60px;
+    line-height: 1;
+  }
+
+  input[type="text"]::placeholder {
+    color: #e16868;
+  }
+
+  #s-cover {
+    width: 1px;
+    padding-left: 35px;
+  }
+
+  button {
+    position: relative;
+    display: block;
+    width: 84px;
+    height: 96px;
+    cursor: pointer;
+  }
+
+  #s-circle {
+    position: relative;
+    // top: -2px;
+    top: 0;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    margin-top: 0;
+    border-width: 30px;
+    border: 15px solid #fff;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: 0.5s ease all;
+  }
+
+  button span {
+    position: absolute;
+    top: 68px;
+    left: 43px;
+    display: block;
+    width: 45px;
+    height: 15px;
+    background-color: transparent;
+    border-radius: 10px;
+    transform: rotateZ(52deg);
+    transition: 0.5s ease all;
+  }
+
+  button span:before,
+  button span:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 45px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    transform: rotateZ(0);
+    transition: 0.5s ease all;
+  }
+
+  #s-cover:hover #s-circle {
+    top: -1px;
+    width: 67px;
+    height: 15px;
+    border-width: 0;
+    background-color: #fff;
+    border-radius: 20px;
+  }
+
+  #s-cover:hover span {
+    top: 50%;
+    left: 56px;
+    width: 25px;
+    margin-top: -9px;
+    transform: rotateZ(0);
+  }
+
+  #s-cover:hover button span:before {
+    bottom: 11px;
+    transform: rotateZ(52deg);
+  }
+
+  #s-cover:hover button span:after {
+    bottom: -11px;
+    transform: rotateZ(-52deg);
+  }
+
+  #s-cover:hover button span:before,
+  #s-cover:hover button span:after {
+    right: -6px;
+    width: 40px;
+    background-color: #fff;
   }
 `;
 
@@ -103,37 +272,46 @@ const Home = () => {
   return (
     <main>
       <head>
-        <link
+        {/* <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
+        /> */}
       </head>
 
-        <CenteredContainer>
-          <div className="search-container">
-            <form
-              id="input-test"
-              onSubmit={(e) => {
-                e.preventDefault();
-                Router.push({
-                  pathname: "/user",
-                  query: { id: username },
-                });
-              }}
-            >
-              <input
-                type="text"
-                id="user-name"
-                placeholder="Username..."
-                onChange={(e) => setUsername(e.target.value || "")}
-              />
-              <button type="submit" value="search">
-                <i className="fa fa-search" />
-              </button>
-            </form>
-          </div>
-        </CenteredContainer>
-
+      <CenteredContainer>
+        <div id="cover">
+          {/* <div className="search-container"> */}
+          <form
+            id="input-test"
+            onSubmit={(e) => {
+              e.preventDefault();
+              Router.push({
+                pathname: "/user",
+                query: { id: username },
+              });
+            }}
+          >
+            <div class="tb">
+              <div class="td">
+                <input
+                  type="text"
+                  id="user-name"
+                  placeholder="Username..."
+                  onChange={(e) => setUsername(e.target.value || "")}
+                />
+              </div>
+              <div class="td" id="s-cover">
+                <button type="submit" value="search">
+                  {/* <i className="fa fa-search" /> */}
+                  <div id="s-circle"></div>
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          </form>
+          {/* </div> */}
+        </div>
+      </CenteredContainer>
     </main>
   );
 };
