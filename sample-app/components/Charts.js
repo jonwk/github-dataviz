@@ -11,8 +11,8 @@ import { langColors } from "../util";
 
 // Create Most Starred chart
 
-// const Charts = ({repoData}) => {
-const Charts = () => {
+const Charts = ({repoData}) => {
+// const Charts = () => {
   const ChartWidth = 300;
   const ChartHeight = 300;
   //   const [starChartData, setStarChartData] = useState([{}]);
@@ -21,7 +21,7 @@ const Charts = () => {
   const [langChartConfig, setLangChartConfig] = useState({});
   const [langStarChartConfig, setLangStarChartConfig] = useState({});
 
-  const repoData = mockRepoData;
+//   const repoData = mockRepoData;
   const initStarChart = () => {
     const LIMIT = 5;
     const sortProperty = "stargazers_count";
@@ -305,7 +305,7 @@ const Charts = () => {
           </header>
 
           <div className="chart-container">
-            {langChartError && <p>Nothing to see here!</p>}
+            {langChartError && <p>Not Enough Data!</p>}
             <PieChartComp config={langChartConfig} />
           </div>
         </div>
@@ -317,7 +317,7 @@ const Charts = () => {
           <div className="chart-container">
             {/* <BarChartComp config={starBarChartConfig} /> */}
             {/* {starBarChartConfig.starChartData && ( */}
-            {starChartError && <p>Nothing to see here!</p>}
+            {starChartError && <p>Not Enough Data!</p>}
             <BarChartComp config={starChartConfig} />
             {/* )} */}
 
@@ -332,7 +332,7 @@ const Charts = () => {
 
           <div className="chart-container">
             {/* <PieChartComp /> */}
-            {langChartError && <p>Nothing to see here!</p>}
+            {langChartError && <p>Not Enough Data!</p>}
             <PieChartComp config={langStarChartConfig} />
 
             {/* {langChartError && <p>Nothing to see here!</p>} */}
