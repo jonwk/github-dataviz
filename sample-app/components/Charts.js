@@ -15,10 +15,11 @@ import { langColors } from "../util";
 const Charts = () => {
   const ChartWidth = 300;
   const ChartHeight = 300;
-  const [starChartData, setStarChartData] = useState([{}]);
+  //   const [starChartData, setStarChartData] = useState([{}]);
   const [starChartConfig, setStarChartConfig] = useState({});
-  const [langChartData, setLangChartData] = useState([{}]);
+  //   const [langChartData, setLangChartData] = useState([{}]);
   const [langChartConfig, setLangChartConfig] = useState({});
+  const [langStarChartConfig, setLangStarChartConfig] = useState({});
 
   const repoData = mockRepoData;
   const initStarChart = () => {
@@ -36,7 +37,7 @@ const Charts = () => {
     }
 
     console.log(data);
-    setStarChartData(data);
+    // setStarChartData(data);
 
     if (data.length > 0) {
       const width = ChartWidth;
@@ -145,7 +146,7 @@ const Charts = () => {
 
   const initLangChart = () => {
     const langData = getLangData(repoData);
-    setLangChartData(langData);
+    // setLangChartData(langData);
     const labels = langData.map((lang) => lang.label);
     const data = langData;
     const sectorColors = colorsArr(langData);
@@ -186,12 +187,95 @@ const Charts = () => {
     }
   };
 
+  // Create Stars per language chart
+  //   const [thirdChartData, setThirdChartData] = useState(null);
+  const initLangStarChart = () => {
+    // const ctx = document.getElementById("thirdChart");
+    const filteredRepos = repoData.filter(
+      (repo) => !repo.fork && repo.stargazers_count > 0
+    );
+    const uniqueLangs = new Set(filteredRepos.map((repo) => repo.language));
+    const labels = Array.from(uniqueLangs.values()).filter((l) => l);
+    const data = labels.map((lang) => {
+      const repos = filteredRepos.filter((repo) => repo.language === lang);
+      const starsArr = repos.map((r) => r.stargazers_count);
+      const starSum = starsArr.reduce((a, b) => a + b, 0);
+      return { lang: lang, repos: starSum };
+    });
+
+    // const langData = getLangData(repoData);
+    // setLangChartData(langData);
+    // const labels = langData.map((lang) => lang.label);
+    // const data = langData;
+    // const sectorColors = colorsArr(langData);
+    // setLangChartData(data);
+
+    // setThirdChartData(data);
+
+    if (data.length > 0) {
+      console.log("third chart data:", data);
+      const borderColor = labels.map((label) => {
+        if (langColors[label.toLowerCase()] !== undefined) {
+          return langColors[label.toLowerCase()];
+        } else {
+          return getRandomColor();
+        }
+      });
+      const sectorColors = borderColor.map((color) => `${color}FF`);
+      const width = ChartWidth;
+      const height = ChartHeight;
+      const margin = {
+        top: 0,
+        right: 0,
+        left: 0,
+        bottom: 0,
+      };
+
+      const cx = 150;
+      const cy = 150;
+      const innerRadius = 70;
+      const outerRadius = 120;
+      const paddingAngle = 0.5;
+      const dataKey = "repos";
+      const pieChartConfig = {
+        width,
+        height,
+        margin,
+        cx,
+        cy,
+        innerRadius,
+        outerRadius,
+        paddingAngle,
+        data,
+        dataKey,
+        sectorColors,
+      };
+      //   console.log("langChartConfig - ", pieChartConfig);
+      setLangStarChartConfig(pieChartConfig);
+      console.log("langChartConfig - ", pieChartConfig);
+      //   console.log(backgroundColor)
+      //   const config = {
+      //     ctx,
+      //     chartType,
+      //     labels,
+      //     data,
+      //     backgroundColor,
+      //     borderColor,
+      //     axes,
+      //     legend,
+      //   };
+      //   console.log(config);
+      //   buildChart(config);
+    }
+  };
+
   useEffect(() => {
     if (repoData.length) {
       initStarChart();
       initLangChart();
-      console.log(starChartData);
-      console.log(langChartData);
+      initLangStarChart();
+      //   console.log(starChartData);
+      //   console.log(langChartData);
       //   initThirdChart();
     }
   }, []);
@@ -208,8 +292,9 @@ const Charts = () => {
     return false;
   };
 
-  const langChartError = errorHandler(langChartConfig);
   const starChartError = errorHandler(starChartConfig);
+  const langChartError = errorHandler(langChartConfig);
+  const langStarChartError = errorHandler(langStarChartConfig);
 
   return (
     <Section dark>
@@ -248,7 +333,7 @@ const Charts = () => {
           <div className="chart-container">
             {/* <PieChartComp /> */}
             {langChartError && <p>Nothing to see here!</p>}
-            <PieChartComp config={langChartConfig} />
+            <PieChartComp config={langStarChartConfig} />
 
             {/* {langChartError && <p>Nothing to see here!</p>} */}
             {/* <canvas id="langChart" width={chartSize} height={chartSize} /> */}
