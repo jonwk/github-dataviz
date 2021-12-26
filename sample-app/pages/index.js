@@ -110,7 +110,7 @@ const Home = () => {
       </head>
 
         <CenteredContainer>
-          <div class="search-container">
+          <div className="search-container">
             <form
               id="input-test"
               onSubmit={(e) => {
@@ -128,7 +128,7 @@ const Home = () => {
                 onChange={(e) => setUsername(e.target.value || "")}
               />
               <button type="submit" value="search">
-                <i class="fa fa-search" />
+                <i className="fa fa-search" />
               </button>
             </form>
           </div>
