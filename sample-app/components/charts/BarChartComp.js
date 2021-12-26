@@ -11,10 +11,10 @@ import {
   Cell,
 } from "recharts";
 
-const BarChartComp = ({config }) => {
+const BarChartComp = ({ config }) => {
   const { width, height, margin, data, colors, XKey, YKey, BarTPColor } =
     config;
-    console.log(config);
+  console.log(config);
   // const config = props.config;
   // console.log(config);
 
