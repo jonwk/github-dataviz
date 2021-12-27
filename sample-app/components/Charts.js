@@ -139,7 +139,7 @@ const Charts = ({repoData}) => {
       .map((color) => {
         var len = color == null ? 0 : color.length;
         if (len > 0) {
-          return `#${len > 4 ? color.slice(1) : color.slice(1).repeat(2)}CF`;
+          return `#${len > 4 ? color.slice(1) : color.slice(1).repeat(2)}FF`;
         }
       });
   };
@@ -149,6 +149,15 @@ const Charts = ({repoData}) => {
     // setLangChartData(langData);
     const labels = langData.map((lang) => lang.label);
     const data = langData;
+    // const borderColor = labels.map((label) => {
+    //     if (langColors[label.toLowerCase()] !== undefined) {
+    //       return langColors[label.toLowerCase()];
+    //     } else {
+    //       return getRandomColor();
+    //     }
+    //   });
+    //   const sectorColors = borderColor.map((color) => `${color}FF`);
+      
     const sectorColors = colorsArr(langData);
     // setLangChartData(data);
 
