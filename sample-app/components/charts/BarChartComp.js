@@ -42,7 +42,7 @@ const BarChartComp = ({ config }) => {
   // );
   return (
     <BarChart width={width} height={height} data={data} margin={margin}>
-      <XAxis dataKey={XKey}   />
+      <XAxis dataKey={XKey} fill="none"   />
       <YAxis dataKey={YKey} />
       <Tooltip cursor={{ fill: "transparent" }} />
       <Bar dataKey={YKey}>

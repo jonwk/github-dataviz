@@ -3,6 +3,8 @@ import { theme, media, helper } from "../styles";
 const { colors } = theme;
 
 const Section = styled.section`
+  height: fit-content;
+
   padding: 3rem 5rem;
   ${helper.flexCenter};
   ${media.bp900`

@@ -4,14 +4,17 @@ import { colors, theme, helper, media } from "../../styles";
 
 const ChartsStyles = styled.div`
 ${helper.flexCenter} ;
+// height:fit-content;
   border-radius: 1rem;
   background: #24292e;
   box-shadow: inset -24px -24px 39px #1e2226, inset 24px 24px 39px #2a3036;
   width: 95% !important;
+  height: fit-content !important;
   justify-content: center ;
   
 ${media.bp400`
-min-height:900px;
+height:fit-content;
+min-height:1000px;
 display: grid;
 grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
 grid-gap: 2rem;

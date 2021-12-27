@@ -80,7 +80,10 @@ const renderActiveShape = (props) => {
         y={ey}
         textAnchor={textAnchor}
         fill="#fff"
-      >{`${repos + " " + (repos > 1 ? "Repos" : "Repo")}`}</text>
+        >{`${repos + " " + (repos > 1 ? "Repos" : "Repo")}`}</text>
+      {/* >
+        {`${repos}`}
+      </text> */}
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
