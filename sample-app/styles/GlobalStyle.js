@@ -1,7 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
-import theme from './theme';
-import colors from './colors';
-import fonts from './fonts';
+import { createGlobalStyle } from "styled-components";
+import theme from "./theme";
+import colors from "./colors";
+import fonts from "./fonts";
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -273,7 +273,14 @@ const GlobalStyle = createGlobalStyle`
     color: ${colors.white};
   }
 
+  html {
+    overflow: hidden;
+    height: 100%;
+}
+
   body {
+    height: 100%;
+    overflow: auto;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;

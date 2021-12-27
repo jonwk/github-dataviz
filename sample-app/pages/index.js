@@ -5,18 +5,22 @@ import { helper, colors, fonts } from "../styles";
 
 const CenteredContainer = styled.div`
   ${helper.flexCenter};
+  height: 100vh;
+  background: #22262b;
+  box-shadow: inset -25px -25px 50px #0e0f11, inset 25px 25px 50px #363d45;
 
-  background: #4b6cb7; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #182848,
-    #4b6cb7
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #182848,
-    #4b6cb7
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  // background: #4b6cb7; /* fallback for old browsers */
+  // background: -webkit-linear-gradient(
+  //   to top,
+  //   #182848,
+  //   #4b6cb7
+  // ); /* Chrome 10-25, Safari 5.1-6 */
+
+  // background: linear-gradient(
+  //   to top,
+  //   #182848,
+  //   #4b6cb7
+  // ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   // background: #67b26f; /* fallback for old browsers */
   // background: -webkit-linear-gradient(
@@ -97,26 +101,14 @@ const CenteredContainer = styled.div`
   //   // color:${colors.lightblue};
   // }
 
-  * {
-    outline: none;
-  }
+  // .tb {
+  //   color:#f0f;
+  //   display: table;
+  //   width: 100%;
+  // }
+`;
 
-  html,
-  body {
-    height: 100%;
-    min-height: 100%;
-  }
-
-  body {
-    margin: 0;
-    background-color: #ffd8d8;
-  }
-
-  .tb {
-    display: table;
-    width: 100%;
-  }
-
+const StyledInput = styled.div`
   .td {
     display: table-cell;
     vertical-align: middle;
@@ -132,17 +124,30 @@ const CenteredContainer = styled.div`
     background-color: transparent;
   }
 
-  #cover {
-    position: absolute;
+  .cover {
+    position: relative;
     top: 50%;
     left: 0;
     right: 0;
     width: 550px;
     padding: 35px;
     margin: -83px auto 0 auto;
-    background-color: #ff7575;
+    // background-color: #ff7575;
+    background-color: #363d45;
+    // border-radius: 28px;
+    // background: #22262b;
+    // box-shadow: inset 25px -25px 50px #0e0f11, inset -25px 25px 50px #363d45;
+
+    border-radius: 28px;
+    background: #363d45;
+    box-shadow: -25px 25px 50px #16181c, 25px -25px 50px #56626e;
+
+    // border-radius: 28px;
+    // background: #56626e;
+    // box-shadow: 25px -25px 50px #22272c, -25px 25px 50px #8a9db0;
+
     border-radius: 20px;
-    box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
+    box-shadow: 0 10px 40px #363d45, 0 0 0 20px #ffffffeb;
     transform: scale(0.6);
   }
 
@@ -158,7 +163,8 @@ const CenteredContainer = styled.div`
   }
 
   input[type="text"]::placeholder {
-    color: #e16868;
+    // color: #e16868;
+    color: #81e7e9;
   }
 
   #s-cover {
@@ -183,7 +189,7 @@ const CenteredContainer = styled.div`
     height: 50px;
     margin-top: 0;
     border-width: 30px;
-    border: 15px solid #fff;
+    border: 15px solid #0ff;
     background-color: transparent;
     border-radius: 50%;
     transition: 0.5s ease all;
@@ -210,7 +216,7 @@ const CenteredContainer = styled.div`
     right: 0;
     width: 45px;
     height: 15px;
-    background-color: #fff;
+    background-color: #0ff;
     border-radius: 10px;
     transform: rotateZ(0);
     transition: 0.5s ease all;
@@ -221,7 +227,7 @@ const CenteredContainer = styled.div`
     width: 67px;
     height: 15px;
     border-width: 0;
-    background-color: #fff;
+    background-color: #f0f;
     border-radius: 20px;
   }
 
@@ -247,7 +253,7 @@ const CenteredContainer = styled.div`
   #s-cover:hover button span:after {
     right: -6px;
     width: 40px;
-    background-color: #fff;
+    background-color: #f0f;
   }
 `;
 
@@ -268,38 +274,40 @@ const Home = () => {
       </head>
 
       <CenteredContainer>
-        <div id="cover">
-          {/* <div className="search-container"> */}
-          <form
-            id="input-test"
-            onSubmit={(e) => {
-              e.preventDefault();
-              Router.push({
-                pathname: "/user",
-                query: { id: username },
-              });
-            }}
-          >
-            <div class="tb">
-              <div class="td">
-                <input
-                  type="text"
-                  id="user-name"
-                  placeholder="Username..."
-                  onChange={(e) => setUsername(e.target.value || "")}
-                />
+        <StyledInput>
+          <div className="cover">
+            {/* <div className="search-container"> */}
+            <form
+              id="input-test"
+              onSubmit={(e) => {
+                e.preventDefault();
+                Router.push({
+                  pathname: "/user",
+                  query: { id: username },
+                });
+              }}
+            >
+              <div class="tb">
+                <div class="td">
+                  <input
+                    type="text"
+                    id="user-name"
+                    placeholder="Username..."
+                    onChange={(e) => setUsername(e.target.value || "")}
+                  />
+                </div>
+                <div class="td" id="s-cover">
+                  <button type="submit" value="search">
+                    {/* <i className="fa fa-search" /> */}
+                    <div id="s-circle"></div>
+                    <span></span>
+                  </button>
+                </div>
               </div>
-              <div class="td" id="s-cover">
-                <button type="submit" value="search">
-                  {/* <i className="fa fa-search" /> */}
-                  <div id="s-circle"></div>
-                  <span></span>
-                </button>
-              </div>
-            </div>
-          </form>
-          {/* </div> */}
-        </div>
+            </form>
+            {/* </div> */}
+          </div>
+        </StyledInput>
       </CenteredContainer>
     </main>
   );
