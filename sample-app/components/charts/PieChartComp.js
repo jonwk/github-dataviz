@@ -1,6 +1,13 @@
 import React, { useCallback, useState } from "react";
 import PropTypes from "prop-types";
-import { PieChart, Pie, Sector, Tooltip, Cell } from "recharts";
+import {
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Sector,
+  Tooltip,
+  Cell,
+} from "recharts";
 
 // const data = [
 //   { lang: "Java", repos: 5 },

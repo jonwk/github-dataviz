@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
-import { theme, media } from "../styles";
+import { theme, media, helper } from "../styles";
 const { colors } = theme;
 
 const Section = styled.section`
   padding: 3rem 5rem;
-
+  ${helper.flexCenter};
   ${media.bp900`
     padding: 2rem;
   `};
@@ -20,6 +20,7 @@ const Section = styled.section`
       background-color: ${colors.black};
       box-shadow: inset -27px 27px 100px #0a0c0e, inset 27px -27px 100px #2a3036;
       ${media.bp900`
+
         padding-top: 2rem;
         // padding-bottom: 10rem;
       `};

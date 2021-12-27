@@ -6,6 +6,10 @@ const helper = {
     justify-content: center;
     align-items: center;
   `,
+  flexBetween: css`
+    display: flex;
+    justify-content: space-between;
+  `,
   blueButton: css`
     color: ${colors.white};
     background-color: ${colors.blue};

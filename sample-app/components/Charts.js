@@ -349,7 +349,7 @@ const Charts = ({repoData}) => {
           </div>
         </div>
       </ChartsStyles>
-    </Section>
+     </Section>
   );
 };
 
