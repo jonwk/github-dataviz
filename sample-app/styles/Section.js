@@ -3,10 +3,13 @@ import { theme, media, helper } from "../styles";
 const { colors } = theme;
 
 const Section = styled.section`
-  height: fit-content;
+  // height: fit-content;
 
   padding: 3rem 5rem;
-  ${helper.flexCenter};
+  background: #24292e;
+  box-shadow: inset -24px -24px 39px #1e2226, inset 24px 24px 39px #2a3036;
+
+  // ${helper.flexCenter};
   ${media.bp900`
     padding: 2rem;
   `};
@@ -22,9 +25,8 @@ const Section = styled.section`
       background-color: ${colors.black};
       box-shadow: inset -27px 27px 100px #0a0c0e, inset 27px -27px 100px #2a3036;
       ${media.bp900`
-
         padding-top: 2rem;
-        // padding-bottom: 10rem;
+        padding-bottom: 10rem;
       `};
     `};
 

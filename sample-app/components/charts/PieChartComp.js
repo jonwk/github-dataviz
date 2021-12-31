@@ -70,9 +70,6 @@ const renderActiveShape = (props) => {
         textAnchor={textAnchor}
         fill="#fff"
       >{`${repos + " " + (repos > 1 ? `${label}s` : `${label}`)}`}</text>
-      {/* >
-        {`${repos}`}
-      </text> */}
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
@@ -80,7 +77,7 @@ const renderActiveShape = (props) => {
         textAnchor={textAnchor}
         fill="#999"
       >
-        {`(${(percent * 100).toFixed(2)}%)`}
+        {`(${(percent * 100).toFixed(0)}%)`}
       </text>
     </g>
   );
@@ -113,33 +110,64 @@ const PieChartComp = ({ config }) => {
   );
 
   return (
-    <PieChart width={width} height={height} margin={margin} overflow="visible">
-      <Pie
-        activeIndex={activeIndex}
-        activeShape={renderActiveShape}
-        // label={}
-        data={data}
-        cx={cx}
-        cy={cy}
-        innerRadius={innerRadius}
-        outerRadius={outerRadius}
-        paddingAngle={paddingAngle}
-        dataKey={dataKey}
-        onMouseEnter={onPieEnter}
-        stroke="none"
-        fill="transparent"
+    <ResponsiveContainer width="50%" height={height}>
+      <PieChart
+        width={width}
+        height={height}
+        margin={margin}
+        overflow="visible"
       >
-        {data &&
-          data.map((entry, index) => (
-            <Cell
-              label={label}
-              key={`cell-${index}`}
-              fill={sectorColors[index % sectorColors.length]}
-
-            />
-          ))}
-      </Pie>
-    </PieChart>
+        <Pie
+          activeIndex={activeIndex}
+          activeShape={renderActiveShape}
+          data={data}
+          cx={cx}
+          cy={cy}
+          innerRadius={innerRadius}
+          outerRadius={outerRadius}
+          paddingAngle={paddingAngle}
+          dataKey={dataKey}
+          onMouseEnter={onPieEnter}
+          stroke="none"
+          fill="transparent"
+        >
+          {data &&
+            data.map((entry, index) => (
+              <Cell
+                label={label}
+                key={`cell-${index}`}
+                fill={sectorColors[index % sectorColors.length]}
+              />
+            ))}
+        </Pie>
+      </PieChart>
+    </ResponsiveContainer>
+    // <PieChart width={width} height={height} margin={margin} overflow="visible">
+    //   <Pie
+    //     activeIndex={activeIndex}
+    //     activeShape={renderActiveShape}
+    //     data={data}
+    //     cx={cx}
+    //     cy={cy}
+    //     innerRadius={innerRadius}
+    //     outerRadius={outerRadius}
+    //     paddingAngle={paddingAngle}
+    //     dataKey={dataKey}
+    //     onMouseEnter={onPieEnter}
+    //     stroke="none"
+    //     fill="transparent"
+    //   >
+    //     {data &&
+    //       data.map((entry, index) => (
+    //         <Cell
+    //           // repos={data.dataKey}
+    //           label={label}
+    //           key={`cell-${index}`}
+    //           fill={sectorColors[index % sectorColors.length]}
+    //         />
+    //       ))}
+    //   </Pie>
+    // </PieChart>
   );
 };
 

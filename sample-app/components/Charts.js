@@ -265,7 +265,7 @@ const Charts = ({ repoData }) => {
       };
       //   console.log("langChartConfig - ", pieChartConfig);
       setLangStarChartConfig(pieChartConfig);
-      console.log("langChartConfig - ", pieChartConfig);
+      //   console.log("langChartConfig - ", pieChartConfig);
       //   console.log(backgroundColor)
       //   const config = {
       //     ctx,
@@ -310,11 +310,11 @@ const Charts = ({ repoData }) => {
   const langStarChartError = errorHandler(langStarChartConfig);
 
   return (
-    <Section dark>
+    <Section>
       <ChartsStyles>
         <div className="chart">
           <header>
-            <h2>Top Languages</h2>
+            <span className="heading">Top Languages</span>
           </header>
 
           <div className="chart-container">
@@ -324,7 +324,7 @@ const Charts = ({ repoData }) => {
         </div>
         <div className="chart">
           <header>
-            <h2>Top Starred Repos</h2>
+            <span className="heading">Top Starred Repos</span>
           </header>
 
           <div className="chart-container">
@@ -340,7 +340,7 @@ const Charts = ({ repoData }) => {
         </div>
         <div className="chart">
           <header>
-            <h2>Starred Languages</h2>
+            <span className="heading">Starred Languages</span>
           </header>
 
           <div className="chart-container">
