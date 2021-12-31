@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { colors, theme, helper, media } from "../../styles";
 // const { colors } = theme;
 
+// https://codepen.io/wyarejali/pen/VwwQRQz 
 const ChartsStyles = styled.div`
 ${helper.flexCenter} ;
 // height:fit-content;
@@ -21,12 +22,14 @@ grid-gap: 2rem;
 justify-items: center;
   align-items: center;
 `};
+
 ${media.bp600`
 display: grid;
 grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
 grid-gap: 2rem;
 justify-items: center;
 `};
+
 ${media.bp900`
   margin-top: -8rem;
   max-height:50%;
@@ -37,7 +40,6 @@ ${media.bp900`
 `};
 
   .chart {
-
     // background-color: ${colors.white};
     // background-color: transparent;
     max-width: 500px;
@@ -54,7 +56,7 @@ ${media.bp900`
     `};
 
     header {
-    //   ${helper.flsexBetween};
+    //   ${helper.flexBetween};
       margins:2rem 0;
       h2 {
         background: none;
@@ -66,6 +68,7 @@ ${media.bp900`
       color: ${colors.grey2};
     }
   }
+  
   .chart-container {
     overflow:visible;
     box-shadow : 0px -0px 10000px transparent

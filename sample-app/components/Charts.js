@@ -11,8 +11,8 @@ import { langColors } from "../util";
 
 // Create Most Starred chart
 
-const Charts = ({repoData}) => {
-// const Charts = () => {
+const Charts = ({ repoData }) => {
+  // const Charts = () => {
   const ChartWidth = 300;
   const ChartHeight = 300;
   //   const [starChartData, setStarChartData] = useState([{}]);
@@ -21,7 +21,7 @@ const Charts = ({repoData}) => {
   const [langChartConfig, setLangChartConfig] = useState({});
   const [langStarChartConfig, setLangStarChartConfig] = useState({});
 
-//   const repoData = mockRepoData;
+  //   const repoData = mockRepoData;
   const initStarChart = () => {
     const LIMIT = 5;
     const sortProperty = "stargazers_count";
@@ -157,7 +157,7 @@ const Charts = ({repoData}) => {
     //     }
     //   });
     //   const sectorColors = borderColor.map((color) => `${color}FF`);
-      
+
     const sectorColors = colorsArr(langData);
     // setLangChartData(data);
 
@@ -177,6 +177,7 @@ const Charts = ({repoData}) => {
       const outerRadius = 120;
       const paddingAngle = 0.5;
       const dataKey = "repos";
+      const label = "Repo";
       const pieChartConfig = {
         width,
         height,
@@ -188,6 +189,7 @@ const Charts = ({repoData}) => {
         paddingAngle,
         data,
         dataKey,
+        label,
         sectorColors,
       };
       console.log("langChartConfig - ", pieChartConfig);
@@ -246,6 +248,7 @@ const Charts = ({repoData}) => {
       const outerRadius = 120;
       const paddingAngle = 0.5;
       const dataKey = "repos";
+      const label = "Star";
       const pieChartConfig = {
         width,
         height,
@@ -257,6 +260,7 @@ const Charts = ({repoData}) => {
         paddingAngle,
         data,
         dataKey,
+        label,
         sectorColors,
       };
       //   console.log("langChartConfig - ", pieChartConfig);
@@ -349,7 +353,7 @@ const Charts = ({repoData}) => {
           </div>
         </div>
       </ChartsStyles>
-     </Section>
+    </Section>
   );
 };
 

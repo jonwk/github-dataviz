@@ -9,18 +9,6 @@ import {
   Cell,
 } from "recharts";
 
-// const data = [
-//   { lang: "Java", repos: 5 },
-//   { lang: "VHDL", repos: 1 },
-//   { lang: "JavaScript", repos: 4 },
-//   { lang: "SCSS", repos: 1 },
-//   { lang: "Jupyter Notebook", repos: 1 },
-//   { lang: "Python", repos: 4 },
-//   { lang: "CSS", repos: 1 },
-//   { lang: "Dart", repos: 1 },
-//   { lang: "Verilog", repos: 1 },
-// ];
-
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
   const {
@@ -35,6 +23,7 @@ const renderActiveShape = (props) => {
     payload,
     percent,
     repos,
+    label,
   } = props;
   const sin = Math.sin(-RADIAN * midAngle);
   const cos = Math.cos(-RADIAN * midAngle);
@@ -80,7 +69,7 @@ const renderActiveShape = (props) => {
         y={ey}
         textAnchor={textAnchor}
         fill="#fff"
-        >{`${repos + " " + (repos > 1 ? "Repos" : "Repo")}`}</text>
+      >{`${repos + " " + (repos > 1 ? `${label}s` : `${label}`)}`}</text>
       {/* >
         {`${repos}`}
       </text> */}
@@ -110,11 +99,10 @@ const PieChartComp = ({ config }) => {
     data,
     dataKey,
     sectorColors,
+    label,
   } = config;
-  // const {  } = dimensions;
-  console.log(config);
-  // dimensions = {cx:150,cy:150,innerRadius:70,outerRadius:120,paddingAngle}
-  // const colors = data.map({lang,repos,colors}={color})
+
+  // console.log(config);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const onPieEnter = useCallback(
@@ -129,6 +117,7 @@ const PieChartComp = ({ config }) => {
       <Pie
         activeIndex={activeIndex}
         activeShape={renderActiveShape}
+        // label={}
         data={data}
         cx={cx}
         cy={cy}
@@ -143,8 +132,10 @@ const PieChartComp = ({ config }) => {
         {data &&
           data.map((entry, index) => (
             <Cell
+              label={label}
               key={`cell-${index}`}
               fill={sectorColors[index % sectorColors.length]}
+
             />
           ))}
       </Pie>
