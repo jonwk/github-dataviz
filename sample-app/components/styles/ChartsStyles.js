@@ -92,9 +92,12 @@ const ChartsStyles = styled.div`
   `};
 
   .chart {
-    border-radius: 10px;
-    background: #24292e;
-    box-shadow: inset -24px -24px 39px #1e2226, inset 24px 24px 39px #2a3036;
+    // border-radius: 10px;
+    // background: #24292e;
+    // box-shadow: inset -24px -24px 39px #1e2226, inset 24px 24px 39px #2a3036;
+    border-radius: 28px;
+    background: linear-gradient(45deg, #1e2124, #23282b);
+    box-shadow: 25px -25px 50px #1b1f21, -25px 25px 50px #272b2f;
     // background-color: ${colors.white};
     max-width: 500px;
     padding: 2rem;
@@ -114,7 +117,7 @@ const ChartsStyles = styled.div`
       .heading {
         // color: rgba(200, 225, 255, 0.7);
         color: ${colors.grey};
-        font-size: 1.5rem;
+        font-size: 1.7rem;
         font-weight: 450;
       }
     }
