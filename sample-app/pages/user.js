@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { mockUserData, mockRepoData } from "../mock";
-
-// import { UserInfo, Charts, RateLimit } from "../components";
 import { UserInfo, Charts } from "../components";
 
 import { BarChart } from "recharts";
@@ -32,17 +30,6 @@ const User = (props) => {
       });
   };
 
-  //   const getLangData = () => {
-  //     const me = new GhPolyglot(`${username}`);
-  //     me.userStats((err, stats) => {
-  //       if (err) {
-  //         console.error("Error:", err);
-  //         setError({ active: true, type: 400 });
-  //       }
-  //       setLangData(stats);
-  //     });
-  //   };
-
   const getRepoData = () => {
     fetch(`https://api.github.com/users/${username}/repos?per_page=100`)
       .then((response) => {
@@ -71,13 +58,8 @@ const User = (props) => {
         }
       });
 
-    // // getUserData();
     getUserData();
-    // getLangData();
     getRepoData();
-
-    // setUserData(mockUserData);
-    // setRepoData(mockRepoData);
   }, []);
 
   return (

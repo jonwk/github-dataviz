@@ -99,8 +99,6 @@ const PieChartComp = ({ config }) => {
     label,
   } = config;
 
-  // console.log(config);
-
   const [activeIndex, setActiveIndex] = useState(0);
   const onPieEnter = useCallback(
     (_, index) => {
@@ -142,32 +140,6 @@ const PieChartComp = ({ config }) => {
         </Pie>
       </PieChart>
     </ResponsiveContainer>
-    // <PieChart width={width} height={height} margin={margin} overflow="visible">
-    //   <Pie
-    //     activeIndex={activeIndex}
-    //     activeShape={renderActiveShape}
-    //     data={data}
-    //     cx={cx}
-    //     cy={cy}
-    //     innerRadius={innerRadius}
-    //     outerRadius={outerRadius}
-    //     paddingAngle={paddingAngle}
-    //     dataKey={dataKey}
-    //     onMouseEnter={onPieEnter}
-    //     stroke="none"
-    //     fill="transparent"
-    //   >
-    //     {data &&
-    //       data.map((entry, index) => (
-    //         <Cell
-    //           // repos={data.dataKey}
-    //           label={label}
-    //           key={`cell-${index}`}
-    //           fill={sectorColors[index % sectorColors.length]}
-    //         />
-    //       ))}
-    //   </Pie>
-    // </PieChart>
   );
 };
 

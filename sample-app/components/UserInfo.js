@@ -1,12 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import Octicon, { Briefcase, Calendar, Location } from '@primer/octicons-react';
-// const feather = require("feather-icons");
 import UserInfoStyles from "./styles/UserInfoStyles";
 import { Section } from "../styles";
 import { Briefcase, Calendar, MapPin } from "react-feather";
-// import { theme } from "../styles";
-// const { colors } = theme;
 import { colors } from "../styles";
 
 const UserInfo = ({ userData }) => (
@@ -36,7 +32,6 @@ const UserInfo = ({ userData }) => (
         <div className="info">
           {userData.company && (
             <span className="info__item">
-              {/* <Octicon icon={Briefcase} size="small" /> */}
               <Briefcase
                 className="icon"
                 color={colors.grey}
@@ -49,7 +44,6 @@ const UserInfo = ({ userData }) => (
 
           {userData.location && (
             <span className="info__item">
-              {/* <Octicon icon={Location} size="small" /> */}
               <MapPin
                 className="icon"
                 color={colors.grey}
@@ -62,7 +56,6 @@ const UserInfo = ({ userData }) => (
 
           {userData.created_at && (
             <span className="info__item">
-              {/* <Octicon icon={Calendar} size="small" /> */}
               <Calendar
                 className="icon"
                 color={colors.grey}

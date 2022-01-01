@@ -6,22 +6,15 @@ import { PieChartComp, BarChartComp } from "../components/charts/";
 import { ResponsiveContainer } from "recharts";
 import { mockRepoData } from "../mock";
 import { langColors } from "../util";
-// import { error } from "console";
-// const Charts = ({ repostarChartData }) => {
-
-// Create Most Starred chart
 
 const Charts = ({ repoData }) => {
   // const Charts = () => {
   const ChartWidth = 300;
   const ChartHeight = 300;
-  //   const [starChartData, setStarChartData] = useState([{}]);
   const [starChartConfig, setStarChartConfig] = useState({});
-  //   const [langChartData, setLangChartData] = useState([{}]);
   const [langChartConfig, setLangChartConfig] = useState({});
   const [langStarChartConfig, setLangStarChartConfig] = useState({});
 
-  //   const repoData = mockRepoData;
   const initStarChart = () => {
     const LIMIT = 5;
     const sortProperty = "stargazers_count";
@@ -35,9 +28,6 @@ const Charts = ({ repoData }) => {
     for (let i = 0; i < stars.length; i++) {
       data.push({ name: labels[i], stars: stars[i] });
     }
-
-    console.log(data);
-    // setStarChartData(data);
 
     if (data.length > 0) {
       const width = ChartWidth;
@@ -63,10 +53,7 @@ const Charts = ({ repoData }) => {
         YKey,
         BarTPColor,
       };
-      console.log(starBarChartConfig);
       setStarChartConfig(starBarChartConfig);
-      console.log(starBarChartConfig);
-      //   console.log(starBarChartConfig);
     }
   };
 
@@ -124,15 +111,6 @@ const Charts = ({ repoData }) => {
   };
 
   const colorsArr = (langData) => {
-    // let colors = Array.from(langData, ({ key, value, color }) => color);
-    // colors = colors.map(v => (v === undefined ? getRandomColor() : v));
-    // colors = colors.filter(x => x !== undefined);
-    // colors = colors.map(color => {
-    //   var len = color == null ? 0 : color.length;
-    //   if (len > 0) {
-    //     return `#${len > 4 ? color.slice(1) : color.slice(1).repeat(2)}FF`;
-    //   }
-    // });
     return Array.from(langData, ({ key, value, color }) => color)
       .map((v) => (v === undefined ? getRandomColor() : v))
       .filter((x) => x !== undefined)
@@ -146,20 +124,9 @@ const Charts = ({ repoData }) => {
 
   const initLangChart = () => {
     const langData = getLangData(repoData);
-    // setLangChartData(langData);
     const labels = langData.map((lang) => lang.label);
     const data = langData;
-    // const borderColor = labels.map((label) => {
-    //     if (langColors[label.toLowerCase()] !== undefined) {
-    //       return langColors[label.toLowerCase()];
-    //     } else {
-    //       return getRandomColor();
-    //     }
-    //   });
-    //   const sectorColors = borderColor.map((color) => `${color}FF`);
-
     const sectorColors = colorsArr(langData);
-    // setLangChartData(data);
 
     if (data.length > 0) {
       const width = ChartWidth;
@@ -198,10 +165,7 @@ const Charts = ({ repoData }) => {
     }
   };
 
-  // Create Stars per language chart
-  //   const [thirdChartData, setThirdChartData] = useState(null);
   const initLangStarChart = () => {
-    // const ctx = document.getElementById("thirdChart");
     const filteredRepos = repoData.filter(
       (repo) => !repo.fork && repo.stargazers_count > 0
     );
@@ -213,15 +177,6 @@ const Charts = ({ repoData }) => {
       const starSum = starsArr.reduce((a, b) => a + b, 0);
       return { lang: lang, repos: starSum };
     });
-
-    // const langData = getLangData(repoData);
-    // setLangChartData(langData);
-    // const labels = langData.map((lang) => lang.label);
-    // const data = langData;
-    // const sectorColors = colorsArr(langData);
-    // setLangChartData(data);
-
-    // setThirdChartData(data);
 
     if (data.length > 0) {
       console.log("third chart data:", data);
@@ -263,22 +218,8 @@ const Charts = ({ repoData }) => {
         label,
         sectorColors,
       };
-      //   console.log("langChartConfig - ", pieChartConfig);
+
       setLangStarChartConfig(pieChartConfig);
-      //   console.log("langChartConfig - ", pieChartConfig);
-      //   console.log(backgroundColor)
-      //   const config = {
-      //     ctx,
-      //     chartType,
-      //     labels,
-      //     data,
-      //     backgroundColor,
-      //     borderColor,
-      //     axes,
-      //     legend,
-      //   };
-      //   console.log(config);
-      //   buildChart(config);
     }
   };
 
@@ -287,9 +228,6 @@ const Charts = ({ repoData }) => {
       initStarChart();
       initLangChart();
       initLangStarChart();
-      //   console.log(starChartData);
-      //   console.log(langChartData);
-      //   initThirdChart();
     }
   }, []);
 
@@ -328,14 +266,8 @@ const Charts = ({ repoData }) => {
           </header>
 
           <div className="chart-container">
-            {/* <BarChartComp config={starBarChartConfig} /> */}
-            {/* {starBarChartConfig.starChartData && ( */}
             {starChartError && <p>Not Enough Data!</p>}
             <BarChartComp config={starChartConfig} />
-            {/* )} */}
-
-            {/* {langChartError && <p>Nothing to see here!</p>} */}
-            {/* <canvas id="langChart" width={chartSize} height={chartSize} /> */}
           </div>
         </div>
         <div className="chart">
@@ -344,12 +276,8 @@ const Charts = ({ repoData }) => {
           </header>
 
           <div className="chart-container">
-            {/* <PieChartComp /> */}
             {langChartError && <p>Not Enough Data!</p>}
             <PieChartComp config={langStarChartConfig} />
-
-            {/* {langChartError && <p>Nothing to see here!</p>} */}
-            {/* <canvas id="langChart" width={chartSize} height={chartSize} /> */}
           </div>
         </div>
       </ChartsStyles>

@@ -3,13 +3,10 @@ import { theme, media, helper } from "../styles";
 const { colors } = theme;
 
 const Section = styled.section`
-  // height: fit-content;
-
   padding: 3rem 5rem;
   background: #24292e;
   box-shadow: inset -24px -24px 39px #1e2226, inset 24px 24px 39px #2a3036;
-
-  // ${helper.flexCenter};
+  
   ${media.bp900`
     padding: 2rem;
   `};
