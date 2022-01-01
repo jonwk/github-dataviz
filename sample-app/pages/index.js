@@ -7,7 +7,7 @@ const CenteredContainer = styled.div`
   ${helper.flexCenter};
   height: 100vh;
   background: #22262b;
-  box-shadow: inset -25px -25px 50px #0e0f11, inset 25px 25px 50px #363d45;
+  box-shadow: 35px 35px 70px #181b1f, -35px -35px 70px #2c3137;
 `;
 
 const StyledInput = styled.div`
@@ -18,7 +18,8 @@ const StyledInput = styled.div`
 
   input,
   button {
-    color: #fff;
+    // color: #fff;
+    color: #81e7e9;
     font-family: ${fonts.mono};
     padding: 0;
     margin: 0;
@@ -41,7 +42,8 @@ const StyledInput = styled.div`
     box-shadow: -25px 25px 50px #16181c, 25px -25px 50px #56626e;
 
     border-radius: 20px;
-    box-shadow: 0 10px 40px #363d45, 0 0 0 20px #ffffffeb;
+    // box-shadow: 0 10px 40px #363d45, 0 0 0 20px #ffffffeb;
+    box-shadow: 0 10px 40px #417475, 0 0 0 20px #77d4d5;
     transform: scale(0.6);
   }
 
@@ -81,7 +83,7 @@ const StyledInput = styled.div`
     height: 50px;
     margin-top: 0;
     border-width: 30px;
-    border: 15px solid #0ff;
+    border: 15px solid #81e7e9;
     background-color: transparent;
     border-radius: 50%;
     transition: 0.5s ease all;
@@ -108,7 +110,7 @@ const StyledInput = styled.div`
     right: 0;
     width: 45px;
     height: 15px;
-    background-color: #0ff;
+    background-color: #81e7e9;
     border-radius: 10px;
     transform: rotateZ(0);
     transition: 0.5s ease all;
@@ -119,7 +121,8 @@ const StyledInput = styled.div`
     width: 67px;
     height: 15px;
     border-width: 0;
-    background-color: #f0f;
+    // background-color: #d426ff;
+    background-color: #77d4d5;
     border-radius: 20px;
   }
 
@@ -145,7 +148,8 @@ const StyledInput = styled.div`
   #s-cover:hover button span:after {
     right: -6px;
     width: 40px;
-    background-color: #f0f;
+    // background-color: #d426ff;
+    background-color: #77d4d5;
   }
 `;
 
@@ -158,8 +162,7 @@ const Home = () => {
 
   return (
     <main>
-      <head>
-      </head>
+      <head></head>
 
       <CenteredContainer>
         <StyledInput>
@@ -191,7 +194,6 @@ const Home = () => {
                 </div>
               </div>
             </form>
-            {/* </div> */}
           </div>
         </StyledInput>
       </CenteredContainer>
