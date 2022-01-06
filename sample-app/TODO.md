@@ -10,6 +10,7 @@
   - [X] Use State Bug for lang data in `Charts.js` and `user.js` 
 - [X] Error handling for viz elemens
 - [X] Do the styling part for the mock viz
+- [x] Fix Frontend UI stuff
+## Additional Features
 - [ ] Create Rate Limit, Footer, and any other relevant columns
 - [ ] Error Handling for RateLimit and Invalid Usernames
-- [ ] Fix Frontend UI stuff
