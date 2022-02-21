@@ -1,4 +1,4 @@
-# github-dataviz - [live-demo](github-dataviz.vercel.app)
+# github-dataviz - [live-demo](https://github-dataviz.vercel.app/)
 
 Repo for Github API access and Metric Design - CSU33012 SOFTWARE ENGINEERING
 
