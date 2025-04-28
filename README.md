@@ -1,8 +1,8 @@
-# github-dataviz - [live-demo](https://github-dataviz.vercel.app/)
+# github-datavis - [live-demo](https://github-datavis.vercel.app/)
 
 Repo for Github API access and Metric Design - CSU33012 SOFTWARE ENGINEERING
 
-Code for the web-app is in the [`sample-app/`](https://github.com/johnkommala/github-dataviz/tree/main/sample-app)
+Code for the web-app is in the [`sample-app/`](https://github.com/johnkommala/github-datavis/tree/main/sample-app)
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/91032767/147891782-1082068c-ba9d-410b-8569-ed5e11f86f03.gif" />
