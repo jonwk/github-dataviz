@@ -5,7 +5,7 @@ const { colors } = theme;
 const Section = styled.section`
   padding: 3rem 5rem;
   background: #24292e;
-  box-shadow: inset -24px -24px 39px #1e2226, inset 24px 24px 39px #2a3036;
+  // box-shadow: inset -24px -24px 39px #1e2226, inset 24px 24px 39px #2a3036;
   
   ${media.bp900`
     padding: 2rem;

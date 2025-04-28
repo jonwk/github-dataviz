@@ -287,7 +287,8 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     font-family: ${fonts.inter};
     color: ${colors.darkGrey};
-    background-color: ${colors.offWhite};
+    background: #24292e;
+    box-shadow: inset -24px -24px 39px #1e2226, inset 24px 24px 39px #2a3036;
   }
 
   h1, h2, h3, h4, h5, h6 {
